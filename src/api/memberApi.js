@@ -26,7 +26,11 @@ export const loginPost = async (loginParam) => {
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
   };
   const formData = qs.stringify(loginParam);
-  const res = await axios.post(`${prefix}/login`, formData, header);
+  const res = await axios.post(
+    `https://atelierteam.shop/api/atelier/login`,
+    formData,
+    header
+  );
   return res.data;
 };
 
@@ -54,7 +58,10 @@ export const signupPost = async (signupParam) => {
 
 export const verifyPassword = async ({ email, password }) => {
   try {
-    const res = await api.post(`/api/atelier/member/verify-password`, { email, password });
+    const res = await api.post(`/api/atelier/member/verify-password`, {
+      email,
+      password,
+    });
     return { success: true, data: res.data };
   } catch (err) {
     return { success: false };
