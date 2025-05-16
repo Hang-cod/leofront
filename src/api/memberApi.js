@@ -26,11 +26,13 @@ export const loginPost = async (loginParam) => {
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
   };
   const formData = qs.stringify(loginParam);
+
   const res = await axios.post(
     `https://atelierteam.shop/api/atelier/login`,
     formData,
     header
   );
+  console.log("res:", res);
   return res.data;
 };
 
