@@ -27,7 +27,7 @@ export const loginPost = async (loginParam) => {
   };
   const formData = qs.stringify(loginParam);
   const res = await axios.post(
-    `https://atelierteam.shop/api/atelier/login`,
+    `https://www.atelierteam.shop/api/atelier/login`,
     formData,
     header
   );
