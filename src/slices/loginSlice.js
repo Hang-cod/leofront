@@ -3,10 +3,14 @@ import { loginPost } from "../api/memberApi";
 
 const initState = { email: "", password: "" };
 
-export const loginPostAsync = createAsyncThunk("loginPostAsync", (param) =>
-  loginPost(param)
+export const loginPostAsync = createAsyncThunk(
+  "loginPostAsync",
+  async (param, { dispatch }) => {
+    const data = await loginPost(param);
+    dispatch(login(data)); // <-- 이 줄을 반드시 추가해야 상태가 바뀜
+    return data; // fulfilled로 넘어갈 payload
+  }
 );
-
 const loginSlice = createSlice({
   name: "loginSlice",
   initialState: initState,

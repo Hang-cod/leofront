@@ -9,10 +9,21 @@ const useCustomLogin = () => {
   const loginState = useSelector((state) => state.loginSlice); //로그인상태
   const isLogin = loginState.email ? true : false; //로그인 여부를 isLogin 변수에 저장
   const doLogin = async (loginParam) => {
-    console.log("doLogin 정보 : ", loginParam);
-    const action = await dispatch(loginPostAsync(loginParam));
-    return action;
+    console.log("로그인 버튼이 눌렸어요:", loginParam);
+    try {
+      const action = await dispatch(loginPostAsync(loginParam));
+      if (loginPostAsync.fulfilled.match(action)) {
+        console.log("로그인 성공!");
+        return { success: true };
+      } else {
+        console.log("로그인 실패:", action.error.message);
+        return { success: false, error: action.error.message };
+      }
+    } catch (err) {
+      return { success: false, error: err.message };
+    }
   };
+
   const doLogout = () => {
     dispatch(logout());
   };
