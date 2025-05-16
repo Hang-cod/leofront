@@ -1,7 +1,7 @@
 import axios from "axios";
 import qs from "qs";
 
-API_SERVER_HOST = "https://atelierteam.shop/api/atelier";
+const API_SERVER_HOST = "https://atelierteam.shop/api/atelier";
 const prefix = `${API_SERVER_HOST}/api/atelier`;
 
 const api = axios.create({
