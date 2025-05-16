@@ -1,5 +1,5 @@
 import axios from "axios";
-export const API_SERVER_HOST = "https://atelierteam.shop";
+export const API_SERVER_HOST = "https://www.atelierteam.shop";
 const prefix = `${API_SERVER_HOST}/api/atelier/auth`;
 
 // ID 찾기 (이름 기반)
