@@ -23,13 +23,13 @@ api.interceptors.request.use(
 export const loginPost = async (loginParam) => {
   console.log("loginPost:", loginParam);
   const header = {
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    headers: { "Content-Type": "application/json" },
   };
-  const formData = qs.stringify(loginParam);
+  // const formData = qs.stringify(loginParam);
 
   const res = await axios.post(
     `https://atelierteam.shop/api/atelier/login`,
-    formData,
+    JSON.stringify(loginParam),
     header
   );
   console.log("res:", res);
