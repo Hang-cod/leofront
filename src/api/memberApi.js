@@ -1,7 +1,7 @@
 import axios from "axios";
 import qs from "qs";
 
-export const API_SERVER_HOST = "https://www.atelierteam.shop";
+API_SERVER_HOST = "https://atelierteam.shop/api/atelier";
 const prefix = `${API_SERVER_HOST}/api/atelier`;
 
 const api = axios.create({
@@ -27,7 +27,7 @@ export const loginPost = async (loginParam) => {
   };
   const formData = qs.stringify(loginParam);
   const res = await axios.post(
-    `https://www.atelierteam.shop/api/atelier/login`,
+    `https://atelierteam.shop/api/atelier/login`,
     formData,
     header
   );
