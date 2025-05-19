@@ -29,8 +29,8 @@ const useCustomLogin = () => {
   };
   const moveToPath = (path) => navigate({ pathname: path }, { replace: true });
   const moveToLogin = () =>
-    navigate({ pathname: "/member/login" }, { replace: true });
-  const moveToReturn = () => <Navigate replace to={"/member/login"} />; //로그인 페이지로 이동
+    navigate({ pathname: "/api/member/login" }, { replace: true });
+  const moveToReturn = () => <Navigate replace to={"/api/member/login"} />; //로그인 페이지로 이동
   return {
     loginState,
     isLogin,
