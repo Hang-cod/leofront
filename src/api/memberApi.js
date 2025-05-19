@@ -2,7 +2,7 @@ import axios from "axios";
 import qs from "qs";
 
 const API_SERVER_HOST = "https://atelierteam.shop";
-const prefix = `${API_SERVER_HOST}/api/atelier`;
+const prefix = `${API_SERVER_HOST}/api/member`;
 
 const api = axios.create({
   baseURL: API_SERVER_HOST,
@@ -29,11 +29,7 @@ export const loginPost = async (loginParam) => {
 
   const formData = qs.stringify(loginParam); // ✅ 정확한 인코딩
 
-  const res = await axios.post(
-    "https://atelierteam.shop/api/atelier/login",
-    formData,
-    { headers }
-  );
+  const res = await axios.post(`${prefix}/login`, formData, { headers });
 
   console.log("res:", res);
   return res.data;
@@ -63,7 +59,7 @@ export const signupPost = async (signupParam) => {
 
 export const verifyPassword = async ({ email, password }) => {
   try {
-    const res = await api.post(`/api/atelier/member/verify-password`, {
+    const res = await api.post(`${prefix}/verify-password`, {
       email,
       password,
     });
