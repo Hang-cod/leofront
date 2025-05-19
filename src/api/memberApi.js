@@ -1,7 +1,7 @@
 import axios from "axios";
 import qs from "qs";
 
-const API_SERVER_HOST = "http://localhost:8080";
+const API_SERVER_HOST = "https://atelierteam.shop";
 const prefix = `${API_SERVER_HOST}/api/atelier`;
 
 const api = axios.create({
@@ -29,7 +29,11 @@ export const loginPost = async (loginParam) => {
 
   const formData = qs.stringify(loginParam); // ✅ 정확한 인코딩
 
-  const res = await axios.post(`${prefix}/login`, formData, { headers });
+  const res = await axios.post(
+    "https://atelierteam.shop/api/atelier/login",
+    formData,
+    { headers }
+  );
 
   console.log("res:", res);
   return res.data;
