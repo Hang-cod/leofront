@@ -13,8 +13,8 @@ const useCustomLogin = () => {
     try {
       const action = await dispatch(loginPostAsync(loginParam));
       if (loginPostAsync.fulfilled.match(action)) {
-        console.log("로그인 성공!");
-        return { success: true };
+        console.log("로그인 성공!", action);
+        return { success: true, payload: action.payload }; // ✅ 여기에 payload 포함시켜야 함
       } else {
         console.log("로그인 실패:", action.error.message);
         return { success: false, error: action.error.message };
