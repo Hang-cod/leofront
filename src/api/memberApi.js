@@ -29,11 +29,7 @@ export const loginPost = async (loginParam) => {
 
   const formData = qs.stringify(loginParam); // ✅ 정확한 인코딩
 
-  const res = await axios.post(
-    "https://atelierteam.shop/api/atelier/login",
-    formData,
-    { headers }
-  );
+  const res = await axios.post(`${prefix}/login`, formData, { headers });
 
   console.log("res:", res);
   return res.data;
