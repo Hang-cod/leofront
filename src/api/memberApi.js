@@ -22,16 +22,19 @@ api.interceptors.request.use(
 
 export const loginPost = async (loginParam) => {
   console.log("loginPost:", loginParam);
-  const header = {
-    headers: { "Content-Type": "application/json" },
+
+  const headers = {
+    "Content-Type": "application/x-www-form-urlencoded",
   };
-  // const formData = qs.stringify(loginParam);
+
+  const formData = qs.stringify(loginParam); // ✅ 정확한 인코딩
 
   const res = await axios.post(
-    `https://atelierteam.shop/api/atelier/login`,
-    JSON.stringify(loginParam),
-    header
+    "https://atelierteam.shop/api/atelier/login",
+    formData,
+    { headers }
   );
+
   console.log("res:", res);
   return res.data;
 };
