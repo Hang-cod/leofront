@@ -3,7 +3,7 @@ import axios from "axios";
 
 // Axios 인스턴스
 export const adminApi = axios.create({
-  baseURL: "https://www.atelierteam.shop/api/atelier",
+  baseURL: "https://api.atelierteam.shop/api/atelier",
   withCredentials: true,
 });
 

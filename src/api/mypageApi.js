@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const API_SERVER_HOST = "https://atelierteam.shop";
+export const API_SERVER_HOST = "https://api.atelierteam.shop";
 const prefix = `${API_SERVER_HOST}/mypage`;
 
 export const getProfile = async () => {
