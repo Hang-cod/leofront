@@ -53,7 +53,11 @@ export const signupPost = async (signupParam) => {
 
   const header = { headers: { "Content-Type": "application/json" } };
 
-  const res = await axios.post(`${prefix}/register`, signupParam, header);
+  const res = await axios.post(
+    `https://www.atelierteam.shop/api/member/register`,
+    signupParam,
+    header
+  );
   return res.data;
 };
 
