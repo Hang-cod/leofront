@@ -63,12 +63,12 @@ export const signupPost = async (signupParam) => {
 
 export const verifyPassword = async ({ email, password }) => {
   try {
-    const res = await api.post(`${prefix}/verify-password`, {
+    const res = await api.post(`${prefix}/member/verify-password`, {
       email,
       password,
     });
     return { success: true, data: res.data };
   } catch (err) {
-    return { success: false };
+    return { success: false };  
   }
 };
